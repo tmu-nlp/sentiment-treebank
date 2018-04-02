@@ -36,6 +36,10 @@ Ckylark による句構造解析結果になる構文木の情報がエンコー
 やバージョンの違いにより、アノテーション結果がずれる可能性を考慮し、
 今回の配布物に含めてあります）
 
+Ckylark は KyTea の付与する品詞や読み推定の情報を使わないので、自分で 
+Ckylark をかける場合 -notags オプションをつけることにご注意ください。
+```cat tsukuba-corpus.txt.orig | kytea -notags | ckylark --model ./jdc```
+
 ## 準備
 
 今回のデータの復元に必要なものは TSUKUBA コーパスです。
@@ -44,6 +48,10 @@ KyTea 0.4.7 にて単語分割してください。
 
 http://www.nlp.mibel.cs.tsukuba.ac.jp/~inui/SA/corpus/
 http://www.phontron.com/kytea/index-ja.html
+
+KyTea 0.4.7 で必要なのは単語分割だけなので、品詞の情報は含めない
+よう、下記の -notags オプションで処理してください。
+```kytea -notags < tsukuba-corpus.txt.orig > tsukuba-corpus.txt```
 
 ### lex.txt
 
